@@ -41,4 +41,16 @@ for i in range(1, len(t)):
 # wahoo
 
 
+# angle v time
+plt.plot(t, theta)
+plt.xlabel("Time (s)")
+plt.ylabel("Angle (rad)")
+plt.title("Pendulum Simulation")
+plt.show()
 
+# ang vel v time
+plt.plot(t, omega)
+plt.xlabel("Time (s)")
+plt.ylabel("Angular Velocity (rad/s)")
+plt.title("Pendulum Simulation")
+plt.show()
