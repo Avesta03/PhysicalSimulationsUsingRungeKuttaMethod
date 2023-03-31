@@ -6,11 +6,20 @@ import matplotlib.pyplot as plt
 # F = kx 
 
 # parameters
+m = 1.0 # mass
+k = 1.0 # spring constant
+x0 = 0.5 # osc initial pos
+v0 = 0.0 # osc initial vel
 
 # time step and time span
+dt = 0.01
+t_start = 0.00
+t_end = 20.00
 
 # initial conditions (of the system)
+y0 = np.array([x0, v0])
 
 # 
+
 
 # Runge-Kutta method to solve system of Ordinary Differential Equations
