@@ -19,7 +19,12 @@ t_end = 20.00
 # initial conditions (of the system)
 y0 = np.array([x0, v0])
 
-# 
-
+# defining a function that establishes/describes the system dynamics
+def f(t, y):
+    # y[0] is the position x of the oscillator
+    # y[1] is the velocity v of the oscillator
+    return np.array([y[1], -k/m*y[0]])
 
 # Runge-Kutta method to solve system of Ordinary Differential Equations
+def rk4th_step(f, t, y, dt):
+    k1 = f(t, y)
