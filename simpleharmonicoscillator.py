@@ -18,7 +18,6 @@ t_end = 20.00
 
 # initial conditions (of the system)
 y0 = np.array([x0, v0])
-y = np.array([y0, v0]) # ?
 
 # defining a function that establishes/describes the system dynamics
 def f(t, y):
@@ -35,15 +34,15 @@ def rk4th_step(f, t, y, dt):
     return y + dt/6*(k1 + 2*k2 + 2*k3 + k4)
 
 t = np.arange(t_start, t_end, dt)
-t = np.zeros(len(t), len(y0))
+y = np.zeros((len(t), len(y0)))
 y[0] = y0
 
 for i in range(len(t)-1):
     y[i+1] = rk4th_step(f, t[i], y[i], dt)
 
 # Plottin'
-plt.plot(t, y[:0], label='Position')
-plt.plot(t, y[:1], label='Velocity')
+plt.plot(t, y[:, 0], label='Position')
+plt.plot(t, y[:, 1], label='Velocity')
 plt.legend()
 plt.xlabel('Time')
 plt.ylabel('Position / Velocity')
