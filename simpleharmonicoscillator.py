@@ -41,3 +41,10 @@ y[0] = y0
 for i in range(len(t)-1):
     y[i+1] = rk4th_step(f, t[i], y[i], dt)
 
+# Plottin'
+plt.plot(t, y[:0], label='Position')
+plt.plot(t, y[:1], label='Velocity')
+plt.legend()
+plt.xlabel('Time')
+plt.ylabel('Position / Velocity')
+plt.show()
