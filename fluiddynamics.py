@@ -66,3 +66,34 @@ def simulate_flow():
             u = u + a2 * time_step * (-u_temp * du_dx_temp - v_temp * du_dy_temp + (1.0 / density) * dp_dx + viscosity * (du_dx_temp ** 2 + du_dy_temp ** 2))
             v = v + a2 * time_step * (-u_temp * dv_dx_temp - v_temp * dv_dy_temp + (1.0 / density) * dp_dy + viscosity * (dv_dx_temp ** 2 + dv_dy_temp ** 2))
 
+# Implementing boundary conditions :D 
+
+def apply_boundary_conditions():
+    # Setting all velocity values at the boundaries to 0
+    u[0, :] = 0
+    u[-1, :] = 0
+    u[:, 0] = 0
+    u[:, -1] = 0
+    v[0, :] = 0
+    v[-1, :] = 0
+    v[:, 0] = 0
+    v[:, -1] = 0
+
+# And to visualise:
+
+def plot_flow(step):
+    plt.clf()
+    plt.quiver(X, Y, u, v)
+    plt.title(f"Fluid Flow - Step {step}")
+    plt.xlabel("X")
+    plt.ylabel("Y")
+    plt.xlim(0, domain_size)
+    plt.ylim(0, domain_size)
+    plt.draw()
+    plt.pause(0.01)
+
+    if step % 10 == 0:  # Plot every 10 (or perhaps 15) steps
+            plot_flow(step)
+
+simulate_flow()
+plt.show()
