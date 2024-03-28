@@ -54,3 +54,5 @@ plt.xlabel("Time (s)")
 plt.ylabel("Angular Velocity (rad/s)")
 plt.title("Pendulum Simulation")
 plt.show()
+
+# Note that this is a free pendulum oscillation - with no dampening, and air resistance/friction are ignored.
